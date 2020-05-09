@@ -51,26 +51,26 @@ const IndexPage = () => {
     },
   }
   return (
-    // <Layout main width="100%">
-      // <div style={style.wrap}>
-      //   <div className="hover:shadow-2xl">
-      //     {firstBlog?.map(item => {
-      //       // return <HorizontalCard data={item} />
-      //     })}
-      //   </div>
+    <Layout main width="100%">
+      <div style={style.wrap}>
+        <div className="hover:shadow-2xl">
+          {firstBlog?.map(item => {
+            // return <HorizontalCard data={item} />
+          })}
+        </div>
 
-      //   <div style={style.verticalCardWrapper} className="row row-cols-sm-1">
-      //     {otherBlogs?.map(item => {
-      //       // return <VerticalCard data={item} />
-      //     })}
-      //   </div>
-      // </div>
-    // </Layout>
-    <Layout>
-      <div>
-        <p>this is simpel</p>
+        <div style={style.verticalCardWrapper} className="row row-cols-sm-1">
+          {otherBlogs?.map(item => {
+            // return <VerticalCard data={item} />
+          })}
+        </div>
       </div>
     </Layout>
+    // <Layout>
+    //   <div>
+    //     <p>this is simpel</p>
+    //   </div>
+    // </Layout>
   )
 }
 
