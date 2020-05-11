@@ -53,16 +53,16 @@ const layout = props => {
             <p style={styles.title}>Fix the Fundamentals Platform</p>
           </div>
           <div style={styles.headerContainer}>
-            {/* <Header color={color} /> */}
+            <Header color={color} />
           </div>
         </div>
       ) : (
-        // <Header color={color} />
-        <p>this is tewxt</p>
+        <Header color={color} />
+        // <p>this is tewxt</p>
       )}
       {props.children}
       <div style={{ bottom: "0px", width: "100%" }}>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </div>
   )

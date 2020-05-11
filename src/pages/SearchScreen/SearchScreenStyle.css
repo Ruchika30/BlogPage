@@ -1,9 +1,10 @@
-.cardWrapper{
+.cardRow{
     display: flex;
+
 }
 
 @media (max-width: 767px) {
-.cardWrapper{
+.cardRow{
     display: block;
 
 }

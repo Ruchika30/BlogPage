@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 // import styles from "./VerticalCardStyle.css"
 import Images from "../../Common/Theme/Images"
 import { Link } from "gatsby"
@@ -19,11 +19,13 @@ const BlogPage = ({ props, location }) => {
     },
   }
 
-  
-  const data = location.state.dataObj
+  const initialValue = {}
+  const [data, setdataValue] = useState(initialValue)
+  useEffect(() => {
+    setdataValue(location.state.dataObj)
+   }, [])
 
-
-  console.log("dta", data)
+  // console.log("datatta",  location.state.dataObj)
 
   return (
     <Layout color="black">

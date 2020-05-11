@@ -103,7 +103,7 @@ export default function CategoryPage() {
           <div className="mainWrapper">
             <div style={style.moneyContainer}>
               <p style={style.title}>{item.slug}</p>
-              <Link to="/SearchScreen/SearchScreen" state={{ dataObj: item }}>
+              <Link to="/SearchScreen/SearchScreen" state={{ dataObj: item.blogs }}>
                 <p style={style.seeAll}>See All </p>
               </Link>
             </div>
