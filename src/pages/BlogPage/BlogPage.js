@@ -6,7 +6,7 @@ import Layout from "../../components/Layout/Layout"
 import Label from "../../components/Label/Label"
 import VerticalCard from "../../components/VerticalCard/VerticalCard"
 
-const BlogPage = ({ props, location }) => {
+const BlogPage = ({ props, location, pageContext }) => {
   let styles = {
     excerpt: {
       color: "black",
@@ -23,9 +23,9 @@ const BlogPage = ({ props, location }) => {
   const [data, setdataValue] = useState(initialValue)
   useEffect(() => {
     setdataValue(location.state.dataObj)
-   }, [])
+  }, [])
 
-  // console.log("datatta",  location.state.dataObj)
+  console.log("data received", pageContext)
 
   return (
     <Layout color="black">

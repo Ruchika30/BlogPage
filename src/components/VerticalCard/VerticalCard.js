@@ -55,11 +55,12 @@ const VerticalCard = props => {
   }
 
   return (
-    <Link
-      to="/BlogPage/BlogPage"
-      style={styles.wrapper}
-      state={{ dataObj: data }}
-    >
+    // <Link
+    //   to="/BlogPage/BlogPage"
+    //   style={styles.wrapper}
+    //   state={{ dataObj: data }}
+    // >
+    <div>
       <div style={styles.imageWrapper}>
         <img src={Images.banner} style={styles.image} />
       </div>
@@ -68,7 +69,8 @@ const VerticalCard = props => {
         <p style={styles.excerpt}>{data.Description}</p>
         <p style={styles.time}>{data.minutes} mins read</p>
       </div>
-    </Link>
+    {/* // </Link> */}
+    </div>
   )
 }
 
