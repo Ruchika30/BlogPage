@@ -5,32 +5,35 @@
  */
 
 // You can delete this file if you're not using it
+const path = require('path')
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const queryResults = await graphql(`
-  query{
-  allStrapiBlog {
-    nodes {
-      Title
-      Content
-      id
+    query {
+      allStrapiBlog {
+        nodes {
+          id
+          Title
+          Description
+          Content
+        }
+      }
     }
-  }
-  }`)
+  `)
 
-  console.log("queryResults", queryResults)
+  const productTemplate = path.resolve(`src/pages/BlogPage/BlogPage.js`)
 
-  const productTemplate = path.resolve(`src/pages/BlogPage/test.js`)
-
-  queryResults.data.allStrapiBlog.nodes.forEach(node => {
+  queryResults.data.allStrapiBlog.nodes.map(item => {
     createPage({
-      path: `/blogs/${node.id}`,
+      path: `/blogs/${item.id}`,
       component: productTemplate,
       context: {
         // This time the entire product is passed down as context
-        product: node,
+        blog: item,
       },
     })
   })
+
+
 };
