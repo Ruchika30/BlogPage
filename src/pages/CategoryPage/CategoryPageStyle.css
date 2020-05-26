@@ -53,7 +53,7 @@
   grid-template-areas: 
           'section1 sidebar'
           'section1 sidebar'
-           'section2 sidebar'
+           'section2 section2'
           ; 
 
 }

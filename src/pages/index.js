@@ -7,7 +7,8 @@ import VerticalCard from "../components/VerticalCard/VerticalCard"
 import Footer from "../components/Footer/Footer"
 import "./styles.css"
 import { useStaticQuery, graphql } from "gatsby"
-// import "bootstrap/dist/css/bootstrap.min.css"
+import { urlType } from "../Common/Theme/Constant"
+// import 'bootstrap/dist/css/bootstrap.min.css'
 
 const query = graphql`
   {
@@ -55,13 +56,21 @@ const IndexPage = () => {
       <div style={style.wrap}>
         <div className="hover:shadow-2xl">
           {firstBlog?.map(item => {
-            return <HorizontalCard data={item} />
+            return (
+              <Link to={urlType.BLOGS+item.id}>
+                <HorizontalCard data={item} />
+               </Link>
+            )
           })}
         </div>
 
         <div style={style.verticalCardWrapper} className="row row-cols-sm-1">
           {otherBlogs?.map(item => {
-            return <VerticalCard data={item} />
+            return (
+            <Link to={urlType.BLOGS+item.id}>
+              <VerticalCard data={item} />
+            </Link>
+            )
           })}
         </div>
       </div>

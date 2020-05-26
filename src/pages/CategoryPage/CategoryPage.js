@@ -4,6 +4,7 @@ import Images from "../../Common/Theme/Images"
 import Layout from "../../components/Layout/Layout"
 import { Link } from "gatsby"
 import { useStaticQuery, graphql } from "gatsby"
+import { urlType } from '../../Common/Theme/Constant'
 
 export default function CategoryPage() {
   const query = graphql`
@@ -11,6 +12,7 @@ export default function CategoryPage() {
       allStrapiCategory {
         nodes {
           blogs {
+            id
             Title
             Description
           }
@@ -94,8 +96,8 @@ export default function CategoryPage() {
     <Layout color="black">
       {categoriesData.map(item => {
         let topItem = item.blogs.slice(0, 1)
-        let lowerSectionItems = item.blogs.slice(1, 5)
-        let columnItems = item.blogs.slice(5, 7)
+        let lowerSectionItems = item.blogs.slice(3, 7)
+        let columnItems = item.blogs.slice(1, 3)
 
         console.log("Title", topItem)
 
@@ -112,7 +114,9 @@ export default function CategoryPage() {
               <div style={style.mainPictureContainer}>
                 {/* main picture*/}
                 {topItem.map(item => {
+                  console.log("item value", item)
                   return (
+                    <Link to={urlType.BLOGS + item.id}>
                     <div>
                       <img src={Images.banner} />
                       <p style={style.titleContainer}>{item.Title}</p>
@@ -121,6 +125,7 @@ export default function CategoryPage() {
                         BySarah HansenForbes Staff
                       </p>
                     </div>
+                  </Link>
                   )
                 })}
 

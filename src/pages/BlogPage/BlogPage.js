@@ -7,8 +7,8 @@ import Label from "../../components/Label/Label"
 import VerticalCard from "../../components/VerticalCard/VerticalCard"
 
 const BlogPage = ({ props, location, pageContext }) => {
-  const data = pageContext.blog
-
+  // const data = pageContext.blog
+  
   let styles = {
     excerpt: {
       color: "black",
@@ -24,7 +24,8 @@ const BlogPage = ({ props, location, pageContext }) => {
   const initialValue = {}
   const [data, setdataValue] = useState(initialValue)
   useEffect(() => {
-    setdataValue(location.state.dataObj)
+    // setdataValue(location.state.dataObj)
+    setdataValue(pageContext)
   }, [])
 
   return (
@@ -38,7 +39,7 @@ const BlogPage = ({ props, location, pageContext }) => {
       >
         <div style={{ padding: "20px 0px" }}>
           <Label
-            title={data.Title}
+            title={data.blog ? data.blog.Title : data.Title}
             size="40px"
             color="black"
             bold={true}
@@ -77,7 +78,9 @@ const BlogPage = ({ props, location, pageContext }) => {
             marginTop: "-70px",
           }}
         >
-          <p style={styles.excerpt}>{data.Description}</p>
+          <p style={styles.excerpt}>
+            {data.blog ? data.blog.Description : data.Description}
+          </p>
         </article>
 
         <div

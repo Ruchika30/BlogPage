@@ -9,6 +9,7 @@ const path = require('path')
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
+ 
   const queryResults = await graphql(`
     query {
       allStrapiBlog {
@@ -22,12 +23,12 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  const productTemplate = path.resolve(`src/pages/BlogPage/BlogPage.js`)
 
+  const blogTemplate = path.resolve(`src/pages/BlogPage/BlogPage.js`)
   queryResults.data.allStrapiBlog.nodes.map(item => {
     createPage({
       path: `/blogs/${item.id}`,
-      component: productTemplate,
+      component: blogTemplate,
       context: {
         // This time the entire product is passed down as context
         blog: item,
@@ -35,5 +36,35 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+   const categoryQueryResults = await graphql(`
+     query {
+       allStrapiCategory {
+         nodes {
+           blogs {
+             Title
+             Description
+             id
+           }
+         }
+       }
+     }
+   `)
 
-};
+   const categoryBlogTemplate = path.resolve(`src/pages/BlogPage/BlogPage.js`)
+   categoryQueryResults.data.allStrapiCategory.nodes.map(item => {
+     item.blogs.map((item) =>
+     createPage({
+       path: `/blogs/${item.id}`,
+       component: categoryBlogTemplate,
+       context: {
+         // This time the entire product is passed down as context
+         blog: item,
+       },
+     })
+     )
+
+
+   })
+
+
+}

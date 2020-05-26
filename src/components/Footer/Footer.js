@@ -1,4 +1,6 @@
 import React from "react"
+import { Link } from "gatsby"
+
 
 const footer = () => {
   let style = {
@@ -36,16 +38,23 @@ const footer = () => {
     >
       <div style={style.footerContainer}>
         <div>
-          <p style={style.text}>Avantika @ 2020, developed by xyz.com</p>
+          <p style={style.text}>
+            FTFP, by Avantika@2020, developed by TheViralAdvertising.com
+          </p>
         </div>
 
         <div>
           {/* <ul style={style.footerItens}> */}
           <ul className="w-56 flex text-xs justify-around text-gray-400">
-            <li>Latest Post</li>
-            <li>Facebbok</li>
-            <li>Twitter</li>
-            <li>RSS</li>
+            <Link>
+              <li>Latest Post</li>
+            </Link>
+              <a href="https://in.linkedin.com/in/avantika-sood-0b16a3a9">
+                <li>Linkedin</li>
+              </a>
+            <a href="https://in.linkedin.com/in/avantika-sood-0b16a3a9">
+              <li>Instagram</li>
+             </a>
           </ul>
         </div>
       </div>

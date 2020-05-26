@@ -8,7 +8,8 @@ export default function Header(props) {
   let styles = {
     navbarWrapper: {
       background: color ? color : "none",
-      padding: "10px 0px",
+      padding: "25px 0px",
+      height:'80px',
     },
 
     menuItems: {
@@ -63,20 +64,26 @@ export default function Header(props) {
         <nav>
           <ul style={styles.menuItems}>
             <li>
-              <Link to="/about" style={styles.link}>
-                FB
-              </Link>
+              <a
+                href="https://in.linkedin.com/in/avantika-sood-0b16a3a9"
+                style={styles.link}
+              >
+                Linkedin
+              </a>
             </li>
             <li>
-              <Link to="/contact" style={styles.link}>
+              <a
+                href="https://in.linkedin.com/in/avantika-sood-0b16a3a9"
+                style={styles.link}
+              >
                 Twitter
-              </Link>
+              </a>
             </li>
-            <li>
+            {/* <li>
               <Link to="/contact" style={styles.link}>
                 Subscribe
               </Link>
-            </li>
+            </li> */}
           </ul>
         </nav>
       </div>

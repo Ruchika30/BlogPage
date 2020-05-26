@@ -4,6 +4,8 @@ import Label from "../../components/Label/Label"
 import Layout from "../../components/Layout/Layout"
 import { Link } from "gatsby"
 import "./SearchScreenStyle.css"
+import { urlType } from '../../Common/Theme/Constant'
+
 
 const SearchScreen = ({props,location}) => {
   const style = {
@@ -30,10 +32,11 @@ const SearchScreen = ({props,location}) => {
  
   return (
     <Layout color="black">
-      {/* <div style={style.mainWrapper}> */}
-        {/* <div> */}
-        <div style={style.container}>
-          {Item?.map(item => (
+      <div style={style.container}>
+        {Item?.map(item => 
+        { 
+          console.log("item in srchscreen", item)
+          return (
             <div className="cardRow">
               <div style={{ flex: 0.2 }}>
                 <img src={Images.banner} />
@@ -45,15 +48,16 @@ const SearchScreen = ({props,location}) => {
                   padding: "10px 20px",
                 }}
               >
-                <Link to="/BlogPage/BlogPage" state={{ dataObj: item }}>
+                {/* <Link to="/BlogPage/BlogPage" state={{ dataObj: item }}> */}
+                <Link to={urlType.BLOGS + item.id}>
                   <h4 style={{ color: "black" }}>{item?.Title}</h4>
                   <p style={style.titleContainer}>{item?.Description}</p>
                 </Link>
               </div>
             </div>
-          ))}
-        </div>
-      {/* </div> */}
+          )}
+        )}
+      </div>
     </Layout>
   )
 }
